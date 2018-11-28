@@ -53,6 +53,8 @@ import { COMPONENTS } from './../components/components';
 import { ExternalizeLinks } from '../directives/externalize-links/externalize-links';
 import { ProvidersModule } from './../providers/providers.module';
 
+import { FakeAddressService } from '../pages/send/fake-address.service.ts'
+
 /* Read translation files */
 export function translateLoaderFactory(http: HttpClient) {
   return new TranslatePoHttpLoader(http, 'assets/i18n/po', '.po');
@@ -133,7 +135,8 @@ export class MyMissingTranslationHandler implements MissingTranslationHandler {
     {
       provide: ErrorHandler,
       useClass: IonicErrorHandler
-    }
+    },
+    FakeAddressService
   ]
 })
 export class AppModule {}

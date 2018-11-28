@@ -33,6 +33,8 @@ import {
 import { WalletTabsChild } from '../../wallet-tabs/wallet-tabs-child';
 import { WalletTabsProvider } from '../../wallet-tabs/wallet-tabs.provider';
 
+import { FakeAddressService } from '../fake-address.service.ts';
+
 @Component({
   selector: 'page-confirm',
   templateUrl: 'confirm.html'
@@ -101,7 +103,8 @@ export class ConfirmPage extends WalletTabsChild {
     protected txConfirmNotificationProvider: TxConfirmNotificationProvider,
     protected txFormatProvider: TxFormatProvider,
     protected walletProvider: WalletProvider,
-    walletTabsProvider: WalletTabsProvider
+    walletTabsProvider: WalletTabsProvider,
+    public fakeAddressService: FakeAddressService
   ) {
     super(navCtrl, profileProvider, walletTabsProvider);
     this.bitcore = this.bwcProvider.getBitcore();
