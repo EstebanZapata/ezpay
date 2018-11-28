@@ -33,7 +33,7 @@ import {
 import { WalletTabsChild } from '../../wallet-tabs/wallet-tabs-child';
 import { WalletTabsProvider } from '../../wallet-tabs/wallet-tabs.provider';
 
-import { FakeAddressService } from '../fake-address.service.ts';
+import { FakeAddressService } from '../fake-address.service';
 
 @Component({
   selector: 'page-confirm',

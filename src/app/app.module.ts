@@ -53,7 +53,7 @@ import { COMPONENTS } from './../components/components';
 import { ExternalizeLinks } from '../directives/externalize-links/externalize-links';
 import { ProvidersModule } from './../providers/providers.module';
 
-import { FakeAddressService } from '../pages/send/fake-address.service.ts'
+import { FakeAddressService } from '../pages/send/fake-address.service'
 
 /* Read translation files */
 export function translateLoaderFactory(http: HttpClient) {

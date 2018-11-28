@@ -39,6 +39,7 @@ import {
 import { ConfirmPage } from '../../../send/confirm/confirm';
 import { CardDetailsPage } from '../../gift-cards/card-details/card-details';
 import { PurchasedCardsPage } from '../purchased-cards/purchased-cards';
+import { FakeAddressService } from '../../../send/fake-address.service';
 
 @Component({
   selector: 'confirm-card-purchase-page',
@@ -86,7 +87,8 @@ export class ConfirmCardPurchasePage extends ConfirmPage {
     translate: TranslateService,
     private payproProvider: PayproProvider,
     platformProvider: PlatformProvider,
-    walletTabsProvider: WalletTabsProvider
+    walletTabsProvider: WalletTabsProvider,
+    fakeAddressService : FakeAddressService
   ) {
     super(
       actionSheetProvider,
@@ -110,7 +112,8 @@ export class ConfirmCardPurchasePage extends ConfirmPage {
       txConfirmNotificationProvider,
       txFormatProvider,
       walletProvider,
-      walletTabsProvider
+      walletTabsProvider,
+      fakeAddressService
     );
     this.hideSlideButton = false;
     this.configWallet = this.configProvider.get().wallet;
